@@ -8,4 +8,4 @@ The Integer Linear Programming is implemented mainly in the ILP directory. The s
 The Heuristic is mainly used with k-shortest path(k=1,2,3...). Choose the optimal path based on different metrics. Heuristic is implemented mainly in the Heuristic directory.
 
 # Deep Q Network
-The main work is implemented using Deep Q Network to balance the resource of the network.In the DQN directory,the Grid2D_dqn_train.py is used to train the DQN model.The DQN model's  network layer is in the Network directory.
+The main work is implemented using Deep Q Network to balance the resource of the network.In the DQN directory,the Grid2D_dqn_run.py is used to train the DQN model.The DQN model's  network layer is in the Network directory.
