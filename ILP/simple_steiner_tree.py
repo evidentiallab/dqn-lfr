@@ -9,7 +9,6 @@ import cplex
 class SimpleSteinerTree(FlowConservationTreeBase):
     def __init__(self, graph_model):
         FlowConservationTreeBase.__init__(self, graph_model)
-        # self.file_name = self.str_time + "_simple_steiner.png"
         self.graph_model = graph_model
         self.str_time = self.graph_model.str_time
         self.directory = self.graph_model.directory
@@ -111,7 +110,7 @@ class SimpleSteinerTree(FlowConservationTreeBase):
         self.c.variables.add(types=ctype_F, ub=ub, lb=lb, names=list_all_F)
         # for F in list_all_F[0:1]:
             # print(self.c.variables.get_upper_bounds(F))
-            # print(self.c.variables.get_lower_bounds(F))
+            # print(self.c.variables.get_lower_bounds(F)
 
         # Each edge sends a flow of 2 if it is taken
         for i in range(self.number_links):
@@ -181,7 +180,6 @@ class SimpleSteinerTree(FlowConservationTreeBase):
             self.graph_model.draw_and_save_simple_steiner_tree(res,
             self.file_name_draw,self.graph_model.src_node,self.graph_model.dst_node)
         return cost
-
 
 if __name__ == '__main__':
     SimpleSteinerTree(GraphGeneratorGrid2D(5, 5, 2, 10)).main(plot=True)

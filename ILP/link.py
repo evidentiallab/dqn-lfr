@@ -14,10 +14,6 @@ class Link:
         assert self.bw >= 0
         G.edge[self.node_1][self.node_2]['bw'] = self.bw
 
-    # def consume_random_bw(self, G):
-    #     random_bw = random.randint(1, self.bw)
-    #     self.consume_bw(random_bw, G)
-
     def restore_bw(self, bw_to_restore, G):
         self.consume_bw(-1 * bw_to_restore, G)
 

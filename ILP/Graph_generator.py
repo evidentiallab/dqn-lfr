@@ -63,8 +63,6 @@ class GraphGeneratorGrid2D(object):
         self.number_links = count
 
     def generate_bw(self):
-        # bandwidth = int((randint(1,20)*self.percentage)//1)
-        # return bandwidth if bandwidth > 1 else 0
         bandwidth = randint(1,20)
         return bandwidth
 
@@ -92,34 +90,11 @@ class GraphGeneratorGrid2D(object):
             path_edges.append((shortest_path[i],shortest_path[i+1]))
         plt.figure(num=None, figsize=(self.m * 2, self.n * 2), dpi=80)
         plt.axis('off')
-        # https://networkx.org/documentation/stable/reference/classes/generated/networkx.Graph.edges.html
+
         edge_weight_bw = dict([((u, v,), str((int(d['weight']), int(d['bw'])))) for u, v, d in self.G.edges(data=True)]) ###
         nx.draw_networkx_edge_labels(self.G, self.pos, edge_labels=edge_weight_bw)
         nx.draw(self.G, self.pos, with_labels=True)
         nx.draw_networkx_edges(self.G, self.pos, edgelist=path_edges,
-                               edge_color='r',
-                               width=8.0)
-        nx.draw_networkx_nodes(self.G, self.pos, nodelist=self.G.nodes(), node_color='orange')
-        nx.draw_networkx_nodes(self.G, self.pos, nodelist=[src], node_color='green')
-        nx.draw_networkx_nodes(self.G, self.pos, nodelist=[dst], node_color='red')
-
-        cut = 1.00
-        xmax = cut * max(xx for xx, yy in self.pos.values())
-        ymax = cut * max(yy for xx, yy in self.pos.values())
-        plt.xlim(-1, xmax + 1)
-        plt.ylim(-1, ymax + 1)
-
-        plt.savefig(self.directory +file_name, bbox_inches="tight", dpi=200)
-        pylab.close()
-    def draw_and_save_load_balancing(self, balancing_path, file_name, src, dst):
-
-        plt.figure(num=None, figsize=(self.m * 2, self.n * 2), dpi=80)
-        plt.axis('off')
-        # https://networkx.org/documentation/stable/reference/classes/generated/networkx.Graph.edges.html
-        edge_weight_bw = dict([((u, v,), str((int(d['weight']), int(d['bw'])))) for u, v, d in self.G.edges(data=True)]) ###
-        nx.draw_networkx_edge_labels(self.G, self.pos, edge_labels=edge_weight_bw)
-        nx.draw(self.G, self.pos, with_labels=True)
-        nx.draw_networkx_edges(self.G, self.pos, edgelist=balancing_path,
                                edge_color='r',
                                width=8.0)
         nx.draw_networkx_nodes(self.G, self.pos, nodelist=self.G.nodes(), node_color='orange')
@@ -141,7 +116,7 @@ class GraphGeneratorGrid2D(object):
             steiner_edges.append((self.int_link_dict[i].node_1, self.int_link_dict[i].node_2))
         plt.figure(num=None, figsize=(self.m * 2, self.n * 2), dpi=80)
         plt.axis('off')
-        # https://networkx.org/documentation/stable/reference/classes/generated/networkx.Graph.edges.html
+
         edge_weight_bw = dict([((u, v,), int(d['weight'])) for u, v, d in self.G.edges(data=True)]) ###
         nx.draw_networkx_edge_labels(self.G, self.pos, edge_labels=edge_weight_bw)
         nx.draw(self.G, self.pos, with_labels=True)
@@ -167,7 +142,7 @@ class GraphGeneratorGrid2D(object):
             steiner_edges.append((self.int_link_dict[i].node_1, self.int_link_dict[i].node_2))
         plt.figure(num=None, figsize=(self.m * 2.65, self.n * 2.65), dpi=200)
         plt.axis('off')
-        # https://networkx.org/documentation/stable/reference/classes/generated/networkx.Graph.edges.html
+
         edge_weight_bw = dict([((u, v,), str((int(d['weight']), int(d['bw'])))) for u, v, d in self.G.edges(data=True)]) ###
         nx.draw_networkx_edge_labels(self.G, self.pos, edge_labels=edge_weight_bw, font_size=15)
         nx.draw(self.G, self.pos, with_labels=True)
@@ -202,7 +177,6 @@ class GraphGeneratorGrid2D(object):
     def draw_and_save(self, file_name_draw):
         p = self.get_shortest_path(self.src_node,self.dst_node)
         self.draw_and_save_shortest_path(p, file_name_draw,self.src_node,self.dst_node)
-
 
 if __name__ == '__main__':
 

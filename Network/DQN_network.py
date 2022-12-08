@@ -3,7 +3,6 @@ import pickle
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-
 # -*- coding: UTF-8 -*-
 
 class Network(nn.Module):

@@ -9,7 +9,6 @@ from ILP.simple_steiner_tree import SimpleSteinerTree
 class LoadBalancingSteinerTree(SimpleSteinerTree):
     def __init__(self, graph_model, beta):
         SimpleSteinerTree.__init__(self, graph_model)
-        # self.file_name = self.str_time + "_load_balancing.png"
         self.str_time = self.graph_model.str_time
         self.directory = self.graph_model.directory
         self.file_name_draw = self.directory + 'load_balancing.png'
@@ -84,7 +83,7 @@ class LoadBalancingSteinerTree(SimpleSteinerTree):
         if status == self.c.solution.status.infeasible_or_unbounded:
             print("Model is infeasible or unbounded")
             return
-        objective_value = self.c.solution.get_objective_value()
+        # objective_value = self.c.solution.get_objective_value()
         # print(objective_value)
         elasped_time = time.time() - start_time
         if elasped_time >= time_limit:
@@ -95,11 +94,7 @@ class LoadBalancingSteinerTree(SimpleSteinerTree):
         for i in range(self.number_links):
             if self.c.solution.get_values(self.var_x[i]) == 1:
                 res.append(i)
-                # self.graph_model.int_link_dict[i].consume_bw(1, self.graph_model.G)
                 cost += self.graph_model.get_link_weight_int(i)
-
-        # max_link_residual_bw = self.c.solution.get_values(self.var_max_link_residual_bw)
-        # min_link_residual_bw = self.c.solution.get_values(self.var_min_link_residual_bw)
 
         if plot:
             self.graph_model.draw_and_save_load_balancing_steiner_tree(res,

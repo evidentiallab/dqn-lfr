@@ -1,7 +1,5 @@
 from __future__ import print_function
 import cplex
-import time
-
 
 class FlowConservationTreeBase(object):
     def __init__(self, graph_model):
