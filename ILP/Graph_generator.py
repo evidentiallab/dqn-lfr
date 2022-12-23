@@ -76,6 +76,13 @@ class GraphGeneratorGrid2D(object):
         p = nx.shortest_path(self.G_contrast_Positive, src, dst,weight='weight')
         return p
 
+    def generate_one_request(self,graph_model):
+        graph_model.src_node = (1,3)
+        graph_model.dst_node = (3,1)
+        graph_model.dst_list = [(3,1)]
+        graph_model.steiner_nodes = [(1,3),(3,1)]
+        self.save_graph_model()#
+
     def generate_request(self,graph_model):
         _list = random.sample(list(self.G.nodes()),2)
         graph_model.src_node = _list[0]
@@ -133,14 +140,14 @@ class GraphGeneratorGrid2D(object):
         plt.xlim(-1, xmax + 1)
         plt.ylim(-1, ymax + 1)
 
-        plt.savefig(self.directory+file_name_draw, bbox_inches="tight", dpi=200)
+        plt.savefig(self.directory+file_name_draw, bbox_inches="tight", dpi=1200)
         pylab.close()
 
     def draw_and_save_load_balancing_steiner_tree(self, steiner_links_int, file_name_draw):
         steiner_edges = []
         for i in steiner_links_int:
             steiner_edges.append((self.int_link_dict[i].node_1, self.int_link_dict[i].node_2))
-        plt.figure(num=None, figsize=(self.m * 2.65, self.n * 2.65), dpi=200)
+        plt.figure(num=None, figsize=(self.m * 2.65, self.n * 2.65), dpi=1200)
         plt.axis('off')
 
         edge_weight_bw = dict([((u, v,), str((int(d['weight']), int(d['bw'])))) for u, v, d in self.G.edges(data=True)]) ###
@@ -149,9 +156,9 @@ class GraphGeneratorGrid2D(object):
         nx.draw_networkx_edges(self.G, self.pos, edgelist=steiner_edges,
                                edge_color='r',
                                width=6.0)
-        nx.draw_networkx_nodes(self.G, self.pos, nodelist=self.G.nodes(), node_color='orange')
-        nx.draw_networkx_nodes(self.G, self.pos, nodelist=[self.src_node], node_color='springgreen')
-        nx.draw_networkx_nodes(self.G, self.pos, nodelist=[self.dst_node], node_color='red')
+        nx.draw_networkx_nodes(self.G, self.pos, nodelist=self.G.nodes(), node_color='orange', node_size=800)
+        nx.draw_networkx_nodes(self.G, self.pos, nodelist=[self.src_node], node_color='springgreen', node_size=800)
+        nx.draw_networkx_nodes(self.G, self.pos, nodelist=[self.dst_node], node_color='red', node_size=800)
 
         cut = 1.00
         xmax = cut * max(xx for xx, yy in self.pos.values())

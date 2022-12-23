@@ -175,6 +175,7 @@ class SimpleSteinerTree(FlowConservationTreeBase):
         for i in range(self.number_links):
             if self.c.solution.get_values(self.var_x[i]) == 1:
                 res.append(i)
+                # self.graph_model.int_link_dict[i].consume_bw(1, self.graph_model.G)
                 cost += self.graph_model.get_link_weight_int(i)
         if plot:
             self.graph_model.draw_and_save_simple_steiner_tree(res,

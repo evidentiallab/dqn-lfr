@@ -7,7 +7,7 @@ Minimize
        + 16 x17 + 11 x18 + 18 x19 + 10 x20 + 17 x21 + 10 x22 + 17 x23 + 5 x24
        + 10 x25 + 16 x26 + 16 x27 + 3 x28 + 2 x29 + 16 x30 + 18 x31 + 14 x32
        + 10 x33 + 15 x34 + 11 x35 + 5 x36 + 9 x37 + 8 x38 + 20 x39
-       + 10 maxLinkResidualBw - 10 minLinkResidualBw
+       + 6 maxLinkResidualBw - 6 minLinkResidualBw
 Subject To
  c1:   - x0 + f0fa0 <= 0
  c2:   - x0 + f0fb0 <= 0
@@ -97,8 +97,9 @@ Subject To
  c86:  f0fa0 - f0fb0 - f0fa9 + f0fb9 - f0fa10 + f0fb10  = 0
  c87:  f0fa2 - f0fb2 + f0fa10 - f0fb10 - f0fa11 + f0fb11 - f0fa12 + f0fb12  = 0
  c88:  f0fa4 - f0fb4 + f0fa12 - f0fb12 - f0fa13 + f0fb13 - f0fa14 + f0fb14  = 0
- c89:  f0fa6 - f0fb6 + f0fa14 - f0fb14 - f0fa15 + f0fb15 - f0fa16 + f0fb16  = 0
- c90:  f0fa8 - f0fb8 + f0fa16 - f0fb16 - f0fa17 + f0fb17  = -1
+ c89:  f0fa6 - f0fb6 + f0fa14 - f0fb14 - f0fa15 + f0fb15 - f0fa16 + f0fb16
+        = -1
+ c90:  f0fa8 - f0fb8 + f0fa16 - f0fb16 - f0fa17 + f0fb17  = 0
  c91:  f0fa9 - f0fb9 - f0fa18 + f0fb18 - f0fa19 + f0fb19  = 0
  c92:  f0fa11 - f0fb11 + f0fa19 - f0fb19 - f0fa20 + f0fb20 - f0fa21 + f0fb21
         = 0
@@ -109,19 +110,19 @@ Subject To
  c95:  f0fa17 - f0fb17 + f0fa25 - f0fb25 - f0fa26 + f0fb26  = 0
  c96:  f0fa18 - f0fb18 - f0fa27 + f0fb27 - f0fa28 + f0fb28  = 0
  c97:  f0fa20 - f0fb20 + f0fa28 - f0fb28 - f0fa29 + f0fb29 - f0fa30 + f0fb30
-        = 0
+        = 1
  c98:  f0fa22 - f0fb22 + f0fa30 - f0fb30 - f0fa31 + f0fb31 - f0fa32 + f0fb32
         = 0
  c99:  f0fa24 - f0fb24 + f0fa32 - f0fb32 - f0fa33 + f0fb33 - f0fa34 + f0fb34
         = 0
  c100: f0fa26 - f0fb26 + f0fa34 - f0fb34 - f0fa35 + f0fb35  = 0
- c101: f0fa27 - f0fb27 - f0fa36 + f0fb36  = 1
+ c101: f0fa27 - f0fb27 - f0fa36 + f0fb36  = 0
  c102: f0fa29 - f0fb29 + f0fa36 - f0fb36 - f0fa37 + f0fb37  = 0
  c103: f0fa31 - f0fb31 + f0fa37 - f0fb37 - f0fa38 + f0fb38  = 0
  c104: f0fa33 - f0fb33 + f0fa38 - f0fb38 - f0fa39 + f0fb39  = 0
  c105: f0fa35 - f0fb35 + f0fa39 - f0fb39  = 0
- c106: x8 + x16 + x17 >= 1
- c107: x27 + x36 >= 1
+ c106: x6 + x14 + x15 + x16 >= 1
+ c107: x20 + x28 + x29 + x30 >= 1
  c108: - x0 - x1 - x2 - x3 - x4 - x5 - x6 - x7 - x8 - x9 - x10 - x11 - x12
        - x13 - x14 - x15 - x16 - x17 - x18 - x19 - x20 - x21 - x22 - x23 - x24
        - x25 - x26 - x27 - x28 - x29 - x30 - x31 - x32 - x33 - x34 - x35 - x36
