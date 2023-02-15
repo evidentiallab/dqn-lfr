@@ -1,5 +1,5 @@
 from load_balancing_steiner_tree import *
-from DQN.graph_generator1 import GraphGeneratorGrid2D
+from Graph_generator import GraphGeneratorGrid2D
 
 if __name__ == '__main__':
     path = '../Graph_and_Net_Model/22112632graph_model.pkl'
