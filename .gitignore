@@ -1,0 +1,17 @@
+*/_build/**
+__pycache__
+.pytest_cache
+.vscode
+.idea
+/cmake-build-debug/
+/out/
+~$*
+*~
+*.swp
+*.swo
+.ipynb_checkpoints
+*.pyc
+/venv/
+*.py[cod]
+*.DS_Store
+open-machine-learning-jupyter-book/assets/pickle/ufo-model.pkl
